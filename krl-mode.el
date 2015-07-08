@@ -270,9 +270,19 @@
          ))
       ind)))
 
+
+(defun indent-and-position (col)
+  (progn
+    (save-excursion
+      (indent-line-to col))
+    (when (< (current-column) col)
+        (move-to-column col))))
+
+
 (defun krl-indent-line ()
   "Indent current line as KRL."
   (interactive)
+  (let ((ind nil))
   (save-excursion
     (progn
       (beginning-of-line)
@@ -283,25 +293,25 @@
             (cond ((looking-at krl-indent-regex-toplevel-block-open)
                    (progn
                      ;(message "toplevel open")
-                     (indent-line-to 0)))
+                     (setq ind 0)))
                   ((looking-at krl-indent-regex-toplevel-block-close)
                    (progn
                      ;(message "toplevel close")
-                     (indent-line-to 0)))
+                     (setq ind 0)))
                   ((looking-at "^ *&")
                    (progn
                      ;(message "&")
                      ;; HMI editor crud.
-                     (indent-line-to 0)))
+                     (setq ind 0)))
                   ((looking-at krl-indent-regex-nested-block-close)
                    (progn
                      ;(message "nested close")
-                     (indent-line-to (krl-indent-of-matching))))
+                     (setq ind (krl-indent-of-matching))))
                   ((looking-at krl-indent-regex-nested-block-middle)
                    (progn
                      ;(message "annoying stuff")
                      ;; (indent-line-to (krl-indent-of-block-opener))))
-                     (indent-line-to (krl-indent-of-matching))))
+                     (setq ind (krl-indent-of-matching))))
                   (t
                    (progn
                      ;(message "other")
@@ -310,8 +320,9 @@
                      (let ((hinted-indent (krl-find-hinted-indent)))
                        (when (not hinted-indent)
                          (setq hinted-indent 0))
-                       (indent-line-to hinted-indent))))
-            )))))))
+                       (setq ind hinted-indent))))
+            ))))))
+  (indent-and-position ind)))
 
 
 (defun krl-mode ()
