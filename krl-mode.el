@@ -86,6 +86,9 @@
     "DO"
     "STEP"
     "WHEN"
+    "RETURN"
+    "STRUC"
+    "TO"
     ))
 
 (defconst krl-keywords
@@ -117,6 +120,8 @@
     "E6AXIS"
     "POS"
     "E6POS"
+    "MODUS_T"
+    "STATE_T"
     ))
 
 (defconst krl-constants
