@@ -109,6 +109,7 @@
     "WAIT"
     "TRIGGER"
     "!"                                 ; Placeholder for positions.
+    "ON_ERROR_PROCEED"
     ))
 
 (defconst krl-types
@@ -122,6 +123,7 @@
     "E6POS"
     "MODUS_T"
     "STATE_T"
+    "DATE"
     ))
 
 (defconst krl-constants
@@ -167,6 +169,7 @@
                                         ; Magic
     "CWRITE"
     "CREAD"
+    "ERR_CLEAR"
     ))
 
 (defconst krl-font-lock-keywords
