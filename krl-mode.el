@@ -116,6 +116,7 @@
   '(
     "CHAR"
     "INT"
+    "BOOL"
     "REAL"
     "AXIS"
     "E6AXIS"
