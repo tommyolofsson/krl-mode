@@ -125,6 +125,7 @@
     "MODUS_T"
     "STATE_T"
     "DATE"
+    "TORQLIMITPARAM"
     ))
 
 (defconst krl-constants
@@ -167,6 +168,9 @@
     "StrCopy"
     "SWRITE"
     "SREAD"
+                                        ; Torque
+    "SET_TORQUE_LIMITS"
+    "RESET_TORQUE_LIMITS"
                                         ; Magic
     "CWRITE"
     "CREAD"
