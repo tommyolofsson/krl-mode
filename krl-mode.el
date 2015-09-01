@@ -89,6 +89,7 @@
     "RETURN"
     "STRUC"
     "TO"
+    "SIGNAL"
     ))
 
 (defconst krl-keywords
