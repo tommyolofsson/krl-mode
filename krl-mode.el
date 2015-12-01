@@ -70,6 +70,7 @@
     "ENDDAT"
     "DECL"
     "GLOBAL"
+    "CONST"
     "PUBLIC"
     "THEN"
     "ENUM"
